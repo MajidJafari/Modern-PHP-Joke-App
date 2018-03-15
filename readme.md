@@ -9,4 +9,4 @@ See full explanation with quickstart tutorial [here](http://www.sitepoint.com/qu
 
 Composer: For autoloading the dependecies.
 
-A compact MVC framework suggested by Taylor Otwell <taylorotwell@gmail.com> and Bruno Skvorc <bruno.skvorc@sitepoint.com> the authors of the book "PHP and MySQL: Novice to Ninja" publishedd by Sitepoint.
+A compact MVC framework suggested by Taylor Otwell <taylorotwell@gmail.com> and Bruno Skvorc <bruno.skvorc@sitepoint.com> the authors of the book "PHP and MySQL: Novice to Ninja 6th Edition" published by Sitepoint.
