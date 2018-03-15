@@ -1,12 +1,15 @@
 <?php
+try {
+	include __DIR__.'/../includes/display_error.php';
+	include __DIR__.'/../includes/autoloader.php';
+	
+	 $route = ltrim(strtok($_SERVER['REQUEST_URI'], '?'), '/');
+	 
+	 $entryPoint = new \Amghezi\EntryPoint($route, $_SERVER['REQUEST_METHOD'], new \Ijdb\IjdbRoutes());
+	 $entryPoint->run();
+}
 
-$title = 'Internet Joke Database';
-include __DIR__. "/../includes/display_error.php";
-
-ob_start();
-
-include __DIR__. '/../templates/home.html.php';
-
-$output = ob_get_clean();
-
-include __DIR__. '/../templates/layout.html.php';
+catch (PDOException $e) {
+		$title = 'ERROR!!!';
+		$output = 'Database error: ' .$e -> getMessage(). ' in ' .$e -> getFile(). ':' .$e -> getLine();
+}

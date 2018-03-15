@@ -16,11 +16,11 @@ try {
 	$result = $jokesTable->findAll();
 	$jokes = [];
 	foreach ($result as $joke) {
-		$author = $authorsTable->findById($joke['authorid']);
+		$author = $authorsTable->findById($joke['authorId']);
 		$jokes[] = [
 			'id' => $joke['id'],
-			'joketext' => $joke['joketext'],
-			'jokedate' => $joke['jokedate'],
+			'jokeText' => $joke['jokeText'],
+			'jokeDate' => $joke['jokeDate'],
 			'name' => $author['name'],
 			'email' => $author['email']
 		];

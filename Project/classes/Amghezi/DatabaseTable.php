@@ -6,9 +6,11 @@
  * Time: 2:54 PM
  */
 
+namespace Amghezi;
+
 class DatabaseTable {
 	
-	private $pdo;
+	protected $pdo;
 	private $table;
 	private $primKey;
 	
@@ -19,7 +21,9 @@ class DatabaseTable {
 	 * @param string $table: The name of the table which we are going to do operation on it
 	 * @param string $primKey: The label of the primary key of the table
 	 */
-	public function __construct(PDO $pdo, string $table, string $primKey) {
+	public function __construct(string $table, string $primKey = 'id') {
+		include __DIR__ . '/../../includes/DatabaseConnection.php';
+		
 		$this -> pdo = $pdo;
 		$this -> table = $table;
 		$this -> primKey = $primKey;
@@ -129,7 +133,7 @@ class DatabaseTable {
 		 * (DUPLICATE KEY)
 		 * so it's an update action which should use the existing primary key value.
 		 */
-		catch (PDOException $e) {
+		catch (\PDOException $e) {
 			$this -> update($record);
 		}
 	}

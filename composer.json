@@ -5,7 +5,9 @@
         "php": ">=7",
         "symfony/console": "~2.0",
         "symfony/process": "~2.0",
-        "symfony/yaml": "^3.3"
+        "symfony/yaml": "^3.3",
+        "nesbot/carbon": "^1.24",
+        "cboden/ratchet": "^0.4.1"
     },
     "license": "MIT",
     "authors": [
@@ -19,9 +21,10 @@
         }
     ],
     "autoload": {
-        "psr-4": {
+        /*"psr-4": {
             "Laravel\\Homestead\\": "src/"
-        }
+        }*/
+		
     },
     "bin": [
         "homestead"
