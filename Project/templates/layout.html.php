@@ -14,6 +14,7 @@
 		<li><a href="/">Home</a></li>
 		<li><a href="/joke/list">Jokes List</a></li>
 		<li><a href="/joke/save">Add a new Joke</a></li>
+		<li><a href="/author/register">Register as an author</a></li>
 	</ul>
 </nav>
 <main>
