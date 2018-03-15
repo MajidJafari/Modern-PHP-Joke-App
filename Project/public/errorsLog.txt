@@ -1,0 +1,128 @@
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/DatabaseTable.php' on 131: Undefined index: id
+Array
+(
+    [record] => Array
+        (
+            [email] => majidted@gmail.com
+            [name] => Majid
+            [password] => Jafaei
+        )
+
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/EntryPoint.php' on 41: include(/home/vagrant/Code/Project/classes/Amghezi/../../templates/.html.php): failed to open stream: No such file or directory
+Array
+(
+    [template] => 
+    [variables] => 
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/EntryPoint.php' on 41: include(): Failed opening '/home/vagrant/Code/Project/classes/Amghezi/../../templates/.html.php' for inclusion (include_path='.:/usr/share/php')
+Array
+(
+    [template] => 
+    [variables] => 
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/DatabaseTable.php' on 131: Undefined index: id
+Array
+(
+    [record] => Array
+        (
+            [email] => mj@gmc.com
+            [name] => Majid
+            [password] => Jafari
+        )
+
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/EntryPoint.php' on 41: include(/home/vagrant/Code/Project/classes/Amghezi/../../templates/.html.php): failed to open stream: No such file or directory
+Array
+(
+    [template] => 
+    [variables] => 
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/EntryPoint.php' on 41: include(): Failed opening '/home/vagrant/Code/Project/classes/Amghezi/../../templates/.html.php' for inclusion (include_path='.:/usr/share/php')
+Array
+(
+    [template] => 
+    [variables] => 
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/DatabaseTable.php' on 131: Undefined index: id
+Array
+(
+    [record] => Array
+        (
+            [email] => mj@gmc.com
+            [name] => Majid
+            [password] => af
+        )
+
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/EntryPoint.php' on 41: include(/home/vagrant/Code/Project/classes/Amghezi/../../templates/.html.php): failed to open stream: No such file or directory
+Array
+(
+    [template] => 
+    [variables] => 
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/EntryPoint.php' on 41: include(): Failed opening '/home/vagrant/Code/Project/classes/Amghezi/../../templates/.html.php' for inclusion (include_path='.:/usr/share/php')
+Array
+(
+    [template] => 
+    [variables] => 
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/DatabaseTable.php' on 131: Undefined index: id
+Array
+(
+    [record] => Array
+        (
+            [email] => sm11@gmail.com
+            [name] => Seyed Mahdi
+            [password] => $2y$10$SDXXGXyQZVsSB.EgItU.nO9ir8b6AwLJbJbr9kx.AGI//xJEog486
+        )
+
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/EntryPoint.php' on 41: include(/home/vagrant/Code/Project/classes/Amghezi/../../templates/.html.php): failed to open stream: No such file or directory
+Array
+(
+    [template] => 
+    [variables] => 
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/EntryPoint.php' on 41: include(): Failed opening '/home/vagrant/Code/Project/classes/Amghezi/../../templates/.html.php' for inclusion (include_path='.:/usr/share/php')
+Array
+(
+    [template] => 
+    [variables] => 
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/EntryPoint.php' on 41: include(/home/vagrant/Code/Project/classes/Amghezi/../../templates/.html.php): failed to open stream: No such file or directory
+Array
+(
+    [template] => 
+    [variables] => 
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/EntryPoint.php' on 41: include(): Failed opening '/home/vagrant/Code/Project/classes/Amghezi/../../templates/.html.php' for inclusion (include_path='.:/usr/share/php')
+Array
+(
+    [template] => 
+    [variables] => 
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/EntryPoint.php' on 41: include(/home/vagrant/Code/Project/classes/Amghezi/../../templates/.html.php): failed to open stream: No such file or directory
+Array
+(
+    [template] => 
+    [variables] => 
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/EntryPoint.php' on 41: include(): Failed opening '/home/vagrant/Code/Project/classes/Amghezi/../../templates/.html.php' for inclusion (include_path='.:/usr/share/php')
+Array
+(
+    [template] => 
+    [variables] => 
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/EntryPoint.php' on 41: include(/home/vagrant/Code/Project/classes/Amghezi/../../templates/.html.php): failed to open stream: No such file or directory
+Array
+(
+    [template] => 
+    [variables] => 
+)
+An error occurred in script '/home/vagrant/Code/Project/classes/Amghezi/EntryPoint.php' on 41: include(): Failed opening '/home/vagrant/Code/Project/classes/Amghezi/../../templates/.html.php' for inclusion (include_path='.:/usr/share/php')
+Array
+(
+    [template] => 
+    [variables] => 
+)

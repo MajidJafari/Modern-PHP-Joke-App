@@ -8,14 +8,17 @@
 
 namespace Ijdb;
 
-class IjdbRoutes implements \Amghezi\Routes {
+use \Amghezi\DatabaseTable;
+use \Amghezi\Routes;
+
+class IjdbRoutes implements Routes {
 	public function getRoutes() {
 		
-		$jokesTable = new \Amghezi\DatabaseTable('joke');
-		$authorsTable = new \Amghezi\DatabaseTable('author');
+		$jokesTable = new DatabaseTable('joke');
+		$authorsTable = new DatabaseTable('author');
 		
-		$jokeController = new \Ijdb\Controllers\Joke($jokesTable, $authorsTable);
-		$authorController = new \Ijdb\Controllers\Register($authorsTable);
+		$jokeController = new Controllers\Joke($jokesTable, $authorsTable);
+		$authorController = new Controllers\Register($authorsTable);
 		
 		$routes = [
 			'author/register' => [

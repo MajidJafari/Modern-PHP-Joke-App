@@ -48,6 +48,13 @@ class DatabaseTable {
 		return $q -> fetch ();
 	}
 	
+	public function find($column, $value) {
+		$q = 'SELECT * FROM `' .$this->table. '` WHERE `' .$column. '` = :value';
+		$params = ['value' => $value];
+		$q = $this -> query($q, $params);
+		return $q->fetchAll();
+	}
+	
 	private function findMaxId() {
 		$q = 'SELECT MAX(id) FROM `'. $this -> table. '`';
 		$q = $this -> query($q);

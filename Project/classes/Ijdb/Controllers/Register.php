@@ -8,7 +8,9 @@
 
 namespace Ijdb\Controllers;
 
-class Register extends \Amghezi\Controller {
+use Amghezi\Controller;
+
+class Register extends Controller {
 	private $authorsTable;
 	
 	public function __construct($authorsTable) {
@@ -21,32 +23,51 @@ class Register extends \Amghezi\Controller {
 	
 	public function registerUser() {
 		
+		
 		$author = $_POST['author'];
-		$valid = true; // By default the form submission is valid
+		// Save the lowercase version of the email user provided for doing correct email duplication check
+		$author['email'] = strtolower($author['email']);
+		
+		$valid = true; // By default the data is valid
 		$errors = [];
 		
 		//Form validation
+		
+		// Check for name submission
 		if(empty($author['name'])) {
 			$valid = false;
 			$errors[] = 'Name can\'be blank.';
 		}
+		
+		// Check for email submission
 		if(empty($author['email'])) {
 			$valid = false;
 			$errors[] = 'Email can\'t be blank';
+		} elseif (filter_var($author['email'], FILTER_VALIDATE_EMAIL) == false) {
+			$valid = false;
+			$errors[] = 'Email is invalid';
+		// Check for email duplication
+		} elseif (count($this->authorsTable->find('email', $author['email'])) >0) {
+			$valid = false;
+			$errors[] = 'Email is already registered.';
 		}
+		
+		// Check for password submission
 		if(empty($author['password'])) {
 			$valid= false;
 			$errors[] = 'Password can\'t be blank';
 		}
 		
+		// If the data is valid, do the registration
 		if($valid) {
+			// Hash the password
+			$author['password'] = password_hash($author['password'], PASSWORD_DEFAULT);
 			$this->authorsTable->save($author);
 			
 			header('Location: /author/success');
-		} else {
-			$variables['error'] = $errors;
+		} else { // Else, display errors.
+			$variables['errors'] = $errors;
 			$variables['author'] = $author;
-			
 			return $this->return('Register an account', 'register', $variables??[]);
 		}
 	}

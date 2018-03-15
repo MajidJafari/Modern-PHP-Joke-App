@@ -9,8 +9,9 @@
 namespace Ijdb\Controllers;
 
 use \Amghezi\DatabaseTable;
+use \Amghezi\Controller;
 
-class Joke extends \Amghezi\Controller {
+class Joke extends Controller {
 	private $jokesTable;
 	private $authorsTable;
 	
