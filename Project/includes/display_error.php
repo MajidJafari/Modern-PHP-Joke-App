@@ -15,7 +15,7 @@ function my_error_handler($e_number, $e_message, $e_file, $e_line, $e_vars) {
 	$message .= print_r($e_vars, 1);
 	
 	// Log the error for security and maintenance analyzing
-	error_log($message, 3 /*write the error in text file*/, 'log.txt');
+	error_log($message, 3 /*write the error in text file*/, 'errorsLog.txt');
 	
 	if(!LIVE) {
 		echo '<pre><div id="message">'. $message ."\n";

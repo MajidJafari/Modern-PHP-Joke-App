@@ -15,8 +15,25 @@ class IjdbRoutes implements \Amghezi\Routes {
 		$authorsTable = new \Amghezi\DatabaseTable('author');
 		
 		$jokeController = new \Ijdb\Controllers\Joke($jokesTable, $authorsTable);
+		$authorController = new \Ijdb\Controllers\Register($authorsTable);
 		
 		$routes = [
+			'author/register' => [
+				'GET' => [
+					'controller' => $authorController,
+					'action' => 'registrationForm'
+				],
+				'POST' => [
+					'controller' => $authorController,
+					'action' => 'registerUser'
+				]
+			],
+			'author/success' => [
+				'GET' => [
+					'controller' => $authorController,
+					'action' => 'success'
+				]
+			],
 			'joke/save' => [
 				'POST' => [
 					'controller' => $jokeController,

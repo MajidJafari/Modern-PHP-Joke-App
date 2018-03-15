@@ -5,9 +5,7 @@
         "php": ">=7",
         "symfony/console": "~2.0",
         "symfony/process": "~2.0",
-        "symfony/yaml": "^3.3",
-        "nesbot/carbon": "^1.24",
-        "cboden/ratchet": "^0.4.1"
+        "symfony/yaml": "^3.3"
     },
     "license": "MIT",
     "authors": [
@@ -18,6 +16,10 @@
         {
             "name": "Bruno Skvorc",
             "email": "bruno.skvorc@sitepoint.com"
+        },
+        {
+            "name": "Majid Jafari",
+            "email": "majidted@gmail.com"
         }
     ],
     "autoload": {

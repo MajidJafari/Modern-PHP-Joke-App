@@ -10,21 +10,13 @@ namespace Ijdb\Controllers;
 
 use \Amghezi\DatabaseTable;
 
-class Joke {
+class Joke extends \Amghezi\Controller {
 	private $jokesTable;
 	private $authorsTable;
 	
 	public function __construct(DatabaseTable $jokesTable , DatabaseTable $authorsTable) {
 		$this -> jokesTable = $jokesTable;
 		$this -> authorsTable = $authorsTable;
-	}
-	
-	private function return($title, $template, $variables = null){
-		return [
-			'title' => $title,
-			'template' => $template,
-			'variables' => $variables
-		];
 	}
 	
 	public function list() {
@@ -60,7 +52,6 @@ class Joke {
 	
 	public function addOrEdit() {
 		// Add action
-		$variables = [];
 		$title = 'Add Joke';
 		
 		// Edit action
@@ -69,7 +60,7 @@ class Joke {
 			$title = 'Edit joke';
 		}
 		
-		return $this->return($title, 'addOrEditJoke', $variables);
+		return $this->return($title, 'addOrEditJoke', $variables??[]);
 	}
 	
 	public function save() {
