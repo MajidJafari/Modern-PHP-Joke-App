@@ -8,27 +8,48 @@
 
 namespace Ijdb;
 
+use Amghezi\Controller;
 use \Amghezi\DatabaseTable;
 use \Amghezi\Routes;
+use \Amghezi\Authentication;
 
 class IjdbRoutes implements Routes {
-	public function getRoutes() {
+	
+	private $jokesTable;
+	private $authorsTable;
+	private $authentication;
+	
+	public function __construct() {
+		$this->jokesTable = new DatabaseTable('joke');
+		$this->authorsTable = new DatabaseTable('author');
+		$this->authentication = new Authentication($this->authorsTable, 'email', 'password');
+	}
+	
+	public function getRoutes():array {
 		
-		$jokesTable = new DatabaseTable('joke');
-		$authorsTable = new DatabaseTable('author');
-		
-		$jokeController = new Controllers\Joke($jokesTable, $authorsTable);
-		$authorController = new Controllers\Register($authorsTable);
+		$loginController = new Controllers\Login($this->authentication);
+		$authorController = new Controllers\Register($this->authorsTable);
+		$jokeController = new Controllers\Joke($this->jokesTable, $this->authorsTable);
 		
 		$routes = [
+			'login' => [
+				'GET' => [
+					'controller' => $loginController,
+					'action' => 'getLoginForm'
+				],
+				'POST' => [
+					'controller' => $loginController,
+					'action' => 'processLogin'
+				],
+			],
 			'author/register' => [
 				'GET' => [
 					'controller' => $authorController,
-					'action' => 'registrationForm'
+					'action' => 'getRegistrationForm'
 				],
 				'POST' => [
 					'controller' => $authorController,
-					'action' => 'registerUser'
+					'action' => 'processRegister'
 				]
 			],
 			'author/success' => [
@@ -46,12 +67,14 @@ class IjdbRoutes implements Routes {
 					'controller' => $jokeController,
 					'action' => 'addOrEdit'
 				],
+				'login' => true
 			],
 			'joke/delete' => [
 				'POST' => [
 					'controller' => $jokeController,
 					'action' => 'delete'
-				]
+				],
+				'login' => true
 			],
 			'joke/list' => [
 				'GET' => [
@@ -69,6 +92,9 @@ class IjdbRoutes implements Routes {
 		];
 		
 		return $routes;
-		
+	}
+	
+	public function getAuthentication():Authentication {
+		return $this->authentication;
 	}
 }

@@ -17,12 +17,11 @@ class Register extends Controller {
 		$this->authorsTable = $authorsTable;
 	}
 	
-	public function registrationForm() {
+	public function getRegistrationForm() {
 		return $this->return('Register an account', 'register');
 	}
 	
-	public function registerUser() {
-		
+	public function processRegister() {
 		
 		$author = $_POST['author'];
 		// Save the lowercase version of the email user provided for doing correct email duplication check
@@ -32,12 +31,6 @@ class Register extends Controller {
 		$errors = [];
 		
 		//Form validation
-		
-		// Check for name submission
-		if(empty($author['name'])) {
-			$valid = false;
-			$errors[] = 'Name can\'be blank.';
-		}
 		
 		// Check for email submission
 		if(empty($author['email'])) {
@@ -50,6 +43,12 @@ class Register extends Controller {
 		} elseif (count($this->authorsTable->find('email', $author['email'])) >0) {
 			$valid = false;
 			$errors[] = 'Email is already registered.';
+		}
+		
+		// Check for name submission
+		if(empty($author['name'])) {
+			$valid = false;
+			$errors[] = 'Name can\'be blank.';
 		}
 		
 		// Check for password submission

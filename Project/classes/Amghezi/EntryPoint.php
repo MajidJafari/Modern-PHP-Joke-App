@@ -45,13 +45,24 @@ class EntryPoint {
 	public function run() {
 		$routes = $this->routes->getRoutes();
 		
+		// If the page is the password-protected
+		if(isset($routes[$this->route]['login'])
+			&&($routes[$this->route]['login'])
+		   // and the user is not logged in
+		    && (!$this->routes->getAuthentication()->isLoggedIn())) {
+			
+				// Display the login form.
+				$this->route = 'login';
+		}
+		
+		 // Display the page content.
 		$controller = $routes[$this->route][$this->method]['controller'];
 		$action = $routes[$this->route][$this->method]['action'];
 		
 		$page = $controller->$action();
+		extract($page);
 		
-		$title = $page['title'];
-		$output = $this->loadTemplate($page['template'], $page['variables']);
+		$output = $this->loadTemplate($template??'home', $variables??[]);
 		
 		include __DIR__ . '/../../templates/layout.html.php';
 	}

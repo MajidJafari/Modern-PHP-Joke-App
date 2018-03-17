@@ -66,10 +66,11 @@ class Joke extends Controller {
 	
 	public function save() {
 		$joke = $_POST['joke'];
+		$author = $this->authorsTable->find('email', $_SESSION['username'])[0];
 		
-		// If the action is an add, we should assign it to an author,
-		// else, set Majid as this lame joke author.
-		$joke['authorId'] = $this->jokesTable->findById($joke['id'])['authorId'] ?? 7;
+		// If the action is and edit,the author is set ,
+		// Else, we should assign it to the logged-in user
+		$joke['authorId'] = $this->jokesTable->findById($joke['id'])['authorId'] ?? $author['id'] ?? 7;
 		
 		// Do edit or insert action
 		$this->jokesTable->save($joke);
