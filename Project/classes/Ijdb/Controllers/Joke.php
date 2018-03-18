@@ -63,6 +63,7 @@ class Joke extends Controller {
 		$user = $this->authentication->getUser();
 		$joke = $this->jokesTable->findById($_POST['id']);
 		
+		// This if statement is for preventing CSRF attack
 		if($user['id'] == $joke['authorId']) {
 			$this->jokesTable->delete($_POST['id']);
 		}
@@ -95,6 +96,7 @@ class Joke extends Controller {
 		$joke['authorId'] = $this->jokesTable->findById($joke['id'])['authorId'] ?? $author['id'] ?? 7;
 		
 		// Do edit or insert action if the joke is assigned to the user
+		// This if statement is for preventing CSRF attack
 		if($joke['authorId'] == $author['id']) {
 			$this->jokesTable->save($joke);
 		}
