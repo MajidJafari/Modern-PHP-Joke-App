@@ -51,23 +51,23 @@ class EntryPoint {
 			&&($routes[$this->route]['login'])
 		   // and the user is not logged in
 		    && !$isLoggedIn){
-				/* We should save post info if the user clicked on DELETE,
+				/* We should save post info if the user clicked on a route without the form,
 				 * because when login form is submitted,
 				 * the post info will be overwritten.
 				 *
-				 * We shouldn't follow this instruction for the edit and the add action,
+				 * We shouldn't follow this instruction for the route with form,
 				 * because their corresponding forms will be displayed after the login form is submitted,
 				 * thus the post info will be overwritten correctly.
 				 *
-				 * But the delete action is different because we don't show any form for delete,
-				 * after the login form is submitted.
 				 */
-				if($this->route === 'joke/delete' && !isset($_SESSION['post'])) {
-					$_SESSION['post'] = $_POST;
+				if(isset($routes[$this->route]['noForm'])
+				   && ($routes[$this->route]['noForm'])
+				   && (!isset($_SESSION['post']))) {
+						$_SESSION['post'] = $_POST;
 				}
 				
 				// Display the login form.
-				$this->route = 'login';
+				$this->route = $this->routes->getLoginRoute();
 		}
 		
 		 // Display the page content.

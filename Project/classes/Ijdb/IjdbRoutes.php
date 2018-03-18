@@ -80,7 +80,8 @@ class IjdbRoutes implements Routes {
 					'controller' => $jokeController,
 					'action' => 'delete'
 				],
-				'login' => true
+				'login' => true,
+				'noForm' => true
 			],
 			'joke/list' => [
 				'GET' => [
@@ -102,5 +103,9 @@ class IjdbRoutes implements Routes {
 	
 	public function getAuthentication():Authentication {
 		return $this->authentication;
+	}
+	
+	public function getLoginRoute():string {
+		return 'login';
 	}
 }
