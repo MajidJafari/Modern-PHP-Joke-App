@@ -24,7 +24,10 @@ class Login extends Controller {
 		} elseif(!$this->authentication->canLogin($_POST['username'], $_POST['password'])) {
 			$error = 'Your email or password is incorrect.';
 		} else {
-			header("Location: {$_SERVER['REQUEST_URI']}");
+			echo  $_SERVER['REQUEST_URI']."\n";
+			// We should set http_response_code to 307 to tell the browser we are sending a post request in delete route,
+			// so we could use the saved post info, as the delete rout has no GET method controller nor the action.
+			header("Location: {$_SERVER['REQUEST_URI']}", true, (!isset($_SESSION['post'])) ? 302 : 307 );
 		}
 		
 		$variables['error'] = $error;

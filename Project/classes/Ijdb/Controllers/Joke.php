@@ -47,6 +47,11 @@ class Joke extends Controller {
 	}
 	
 	public function delete() {
+		if(isset($_SESSION['post'])) {
+			$_POST = $_SESSION['post'];
+			$_SESSION['post'] = null;
+			unset($_SESSION['post']);
+		}
 		$this->jokesTable->delete($_POST['id']);
 		header('LOCATION: /joke/list');
 	}
