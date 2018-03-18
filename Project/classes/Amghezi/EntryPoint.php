@@ -44,12 +44,13 @@ class EntryPoint {
 	
 	public function run() {
 		$routes = $this->routes->getRoutes();
+		$isLoggedIn = $this->routes->getAuthentication()->isLoggedIn();
 		
 		// If the page is the password-protected
 		if(isset($routes[$this->route]['login'])
 			&&($routes[$this->route]['login'])
 		   // and the user is not logged in
-		    && (!$this->routes->getAuthentication()->isLoggedIn())){
+		    && !$isLoggedIn){
 				/* We should save post info if the user clicked on DELETE,
 				 * because when login form is submitted,
 				 * the post info will be overwritten.

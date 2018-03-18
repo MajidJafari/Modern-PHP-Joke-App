@@ -42,6 +42,12 @@ class IjdbRoutes implements Routes {
 					'action' => 'processLogin'
 				],
 			],
+			'logout' => [
+				'GET' => [
+					'controller' => $loginController,
+					'action' => 'logout'
+				]
+			],
 			'author/register' => [
 				'GET' => [
 					'controller' => $authorController,

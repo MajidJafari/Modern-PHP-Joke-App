@@ -24,10 +24,17 @@ class Login extends Controller {
 		} elseif(!$this->authentication->canLogin($_POST['username'], $_POST['password'])) {
 			$error = 'Your email or password is incorrect.';
 		} else {
-			echo  $_SERVER['REQUEST_URI']."\n";
+			// If we are in login route we should redirect user to jokes list page
+			if($_SERVER['REQUEST_URI'] === '/login') {
+				$url = '/joke/list';
+			// Else, we should redirect them to password-protected page needed login
+			} else {
+				$url = $_SERVER['REQUEST_URI'];
+			}
+			
 			// We should set http_response_code to 307 to tell the browser we are sending a post request in delete route,
 			// so we could use the saved post info, as the delete rout has no GET method controller nor the action.
-			header("Location: {$_SERVER['REQUEST_URI']}", true, (!isset($_SESSION['post'])) ? 302 : 307 );
+			header("Location: $url", true, (!isset($_SESSION['post'])) ? 302 : 307 );
 		}
 		
 		$variables['error'] = $error;
@@ -35,11 +42,18 @@ class Login extends Controller {
 	}
 	
 	public function getLoginForm($variables = []) {
-		// If no error is set, we should show the user it needs to login.
-		if(!$variables) {
+		// If no error is set, we should show the user he/she needs to login.
+		// ALso, if we are in login route, no error should be displayed.
+		if(!$variables && $_SERVER['REQUEST_URI'] !== '/login') {
 			$variables['error'] = 'You must be logged in to view this page.';
 		}
 		
 		return $this->return('Log In', 'login', $variables);
+	}
+	
+	public function logout() {
+		session_destroy();
+		unset($_SESSION);
+		header('Location: /joke/list');
 	}
 }

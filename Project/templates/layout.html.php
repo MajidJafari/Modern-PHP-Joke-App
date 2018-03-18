@@ -15,6 +15,10 @@
 		<li><a href="/joke/list">Jokes List</a></li>
 		<li><a href="/joke/save">Add a new Joke</a></li>
 		<li><a href="/author/register">Register</a></li>
+        <li><?php if($isLoggedIn): ?><a href="/logout">Logout</a>
+            <?php else: ?><a href="/login">Login</a>
+            <?php endif; ?></li>
+            
 	</ul>
 </nav>
 <main>
