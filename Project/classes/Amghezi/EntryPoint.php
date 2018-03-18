@@ -58,7 +58,6 @@ class EntryPoint {
 				 * We shouldn't follow this instruction for the route with form,
 				 * because their corresponding forms will be displayed after the login form is submitted,
 				 * thus the post info will be overwritten correctly.
-				 *
 				 */
 				if(isset($routes[$this->route]['noForm'])
 				   && ($routes[$this->route]['noForm'])

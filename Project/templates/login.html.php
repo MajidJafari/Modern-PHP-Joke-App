@@ -5,7 +5,7 @@
 <?php endif; ?>
 <form action="" method="post">
 	<label for="username">Username or Email</label>
-	<input type="text" id="username" name="username">
+	<input type="text" id="username" name="username" value="<?=$_POST['username']??''?>">
 	
 	<label for="password">Password</label>
 	<input type="password" id="password" name="password">
